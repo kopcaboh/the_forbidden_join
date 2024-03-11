@@ -1,47 +1,14 @@
 <!DOCTYPE html>
-<html lang="cs">
-
+<html lang="en">
 <head>
-    <title>The Forbidden Join</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="styles/bootstrap/bootstrap-5.3.3.css" rel="stylesheet">
-    <link href="styles/tsld/tsld.css" rel="stylesheet">
-    <link href="styles/joinvis/joinvis.css" rel="stylesheet">
-    <script src="scripts/bootstrap/bootstrap-5.3.3.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Canvas</title>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/index.css">
 </head>
-
 <body>
-    <header id="header">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <div class="dropdown">
-                    <button type="button" class="navbar-toggle" data-toggle="dropdown">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar">I'm here</span>
-                        <span class="icon-bar">I do nothing</span>
-                        <span class="icon-bar">But I exist</span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                    </ul>
-                </div>
-                <a class="navbar-brand" href="/">
-                    The Forbidden Join
-                </a>
-            </div>
-        </nav>
-    </header>
-
-
-
-    <div class="container">
-        <div id="canvas">
-        </div>
-    </div>
-
-    <div class=".memory-block">I'm here</div>
-
-    <a href="/brython_demo/demo.html">Brython demo</a><br>
-    <a href="canvas-playground.html">Canvas playground</a>
+	<div id="root"></div>
+    <script type="text/python" src="src/index.py"></script>
 </body>
-
 </html>
