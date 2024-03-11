@@ -9,12 +9,16 @@
 </head>
 
 <body>
+
+    <div class="memory-block"></div>
+    <div class="memory-block"></div>
+
     <div class="memory">
         <div style="margin-top: -10%; text-align: center;">
             <img src="processor.svg" alt="Processor" height="120px" width="120px" style="margin-top: 5px;">
         </div>
         <div style="margin: 10% 5% 5% 5%; display: flex; justify-content: space-around;">
-            <div id="outer-buffer" class="memory-block-container">
+            <div id="outer-buffer2" class="memory-block-container">
                 <div class="memory-block"></div>
                 <div class="memory-block"></div>
                 <div class="memory-block"></div>
@@ -23,8 +27,33 @@
                 <div class="memory-block"></div>
                 <div class="memory-block"></div>
             </div>
+            <div id="inner-buffer2" class="memory-block"></div>
+            <div id="output-buffer2" class="memory-block"></div>
+        </div>
+    </div>
+
+    <div class="memory">
+        <div class="content-wrapper">
+            <div id="outer-buffer" style="display: inline-block;">
+                <table>
+                    <tr>
+                        <td><div class="memory-block"></div></td>
+                        <td><div class="memory-block"></div></td>
+                        <td><div class="memory-block"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="memory-block"></div></td>
+                        <td><div class="memory-block"></div></td>
+                        <td><div class="memory-block"></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="memory-block"></div></td>
+                    </tr>
+                </table>
+            </div>
             <div id="inner-buffer" class="memory-block"></div>
             <div id="output-buffer" class="memory-block"></div>
         </div>
     </div>
+
 </body>
