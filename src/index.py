@@ -1,14 +1,13 @@
 from browser import document, html, window
+import memory_block.memory_block as memory_block
 
 root = document["root"]
 screen_height = window.innerHeight
 screen_width = window.innerWidth
 
 def say_some_foolery():
-    new_tag = document.createElement("h1")
-    new_text = document.createTextNode("Hello world")
-    new_tag.appendChild(new_text)
+    element = memory_block.show()
 
-    root.appendChild(new_tag)
+    root.appendChild(element)
 
 say_some_foolery()
