@@ -1,0 +1,30 @@
+.memory-block-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.memory {
+    max-width: 50vw;
+
+    background-color: white;
+
+    border: solid black 10px;
+    border-radius: 50px / 50px;
+
+    padding: 5%;
+    margin: 10px;
+}
+
+.memory > .content-wrapper {
+    margin: 5% 2% 5% 2%;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5%;
+    align-items: flex-start;
+}
+
+.memory td{
+    padding: 0;
+    vertical-align: top;
+}
