@@ -44,24 +44,58 @@ td_style = """
 """
 
 number_td_style = """
+    min-width: 2rem;
+    padding-right: 0.5rem;
+
     text-align: right;
+
 """
+
+data_placeholder_style = """
+    height: 0.8rem;
+    width: auto;
+    min-width: 2rem;
+
+    border-radius: 50em;
+
+    background-color: black;
+"""
+
 
 def show_table_data(data):
     table = TABLE()
+    table.appendChild(TR(TH(col_header) for col_header in data[0]))
+
+    for record in data[1:]:
+        table.appendChild(TR(TD(column) for column in record))
+
+    table = style_table(table)
+    return table
+
+def make_data_placeholder():
+    element = document.createElement('div')
+    element.style.cssText = data_placeholder_style
+    
+    return TD(element)
+
+def show_table_placeholder(rows_count=15):
+    table = TABLE()
 
     #header
-    table.appendChild(
-        TR(TH(col_header) for col_header in data[0])
-    )
+    table.appendChild(TR(TH("ID") + TH("Jméno") + TH("Pobočka")))
 
     #data
-    for record in data[1:]:
-        table.appendChild(
-            TR(TD(column) for column in record)
-        )
+    for i in range(rows_count):
+        row = TR(make_data_placeholder() + make_data_placeholder() + make_data_placeholder())
+        table.appendChild(row)
 
     #styling
+    table = style_table(table)
+
+    return table
+
+
+def style_table(table):
     table.style.cssText = table_style
     for element in table.querySelectorAll('tr'):
         element.style.cssText = tr_style
@@ -74,11 +108,7 @@ def show_table_data(data):
 
     for row in table.querySelectorAll('tr'):
         row.children[0].style.cssText += number_td_style
-
     return table
-
-
-
 
 
 def show(data=zamestnanci):
