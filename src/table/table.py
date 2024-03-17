@@ -23,6 +23,8 @@ zamestnanci = [
 ]
 
 table_style = """
+    position: relative;
+
     border: 1.5px solid black;
     border-collapse: collapse;
 

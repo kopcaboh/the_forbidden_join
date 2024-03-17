@@ -2,6 +2,7 @@ from browser import document, html, window
 import memory_block.memory_block as memory_block
 import memory.memory as memory
 import table.table as table
+from utils.utils import highlight_row
 
 root = document["root"]
 screen_height = window.innerHeight
