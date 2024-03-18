@@ -56,8 +56,8 @@ def highlight_row(n, table):
 
     # print(f"top:{bounding_rect.top} left:{bounding_rect.left}")
     
-    highlight.style.top = "%.4fpx" % bounding_rect.top
-    highlight.style.left = "%.4fpx" % bounding_rect.left
+    highlight.style.top = "%fpx" % bounding_rect.top
+    highlight.style.left = "%fpx" % bounding_rect.left
 
     table.appendChild(highlight)
 
@@ -85,9 +85,9 @@ def connect_points(first, second):
 
     line = document.createElement('div')
     line.style.cssText = line_style
-    line.style.left = "%.4fpx" % pivot.x
-    line.style.top = "%.4fpx" % pivot.y
-    line.style.width = "%.4fpx" % length
+    line.style.left = "%fpx" % pivot.x
+    line.style.top = "%fpx" % pivot.y
+    line.style.width = "%fpx" % length
     line.style.transform = "rotate(%frad)" % angle
 
     # print("angle: %.3f  length: %.3f" % (angle, length))
@@ -95,8 +95,26 @@ def connect_points(first, second):
     document["root"].appendChild(line)
 
 
-def connect_table_with_block(table, block, table_offset=0):
-    pass
+def connect_table_with_block(table, block, table_offset=0, n_rows=3):
+    '''Conects chunk of n_rows rows with a memory block'''
+
+    rows = table.querySelectorAll('tr')
+
+    top_delimiter = rows[table_offset+1].getBoundingClientRect()
+    top_left_corner = Point(x = top_delimiter.left + top_delimiter.width,
+                            y = top_delimiter.top)
+    bottom_delimiter = rows[table_offset + n_rows].getBoundingClientRect()
+    bottom_left_corner = Point(x = bottom_delimiter.left + bottom_delimiter.width,
+                               y = bottom_delimiter.top + bottom_delimiter.height)
+    
+    block_delimiter = block.getBoundingClientRect()
+    top_right_corner = Point(x = block_delimiter.left,
+                             y = block_delimiter.top)
+    bottom_right_corner = Point(x = block_delimiter.left,
+                                y = block_delimiter.top + block_delimiter.height)
+
+    connect_points(top_left_corner, top_right_corner)
+    connect_points(bottom_left_corner, bottom_right_corner)
 
 if __name__ == "__main__":
     a = Point(0, 0)
