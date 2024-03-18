@@ -2,7 +2,7 @@ from browser import document, html, window
 import memory_block.memory_block as memory_block
 import memory.memory as memory
 import table.table as table
-from utils.utils import highlight_row, connect_points
+from utils.utils import highlight_row, connect_points, Point
 
 root = document["root"]
 content = document["content-container"]
