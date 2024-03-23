@@ -1,5 +1,6 @@
-from browser import document, html
+from browser import document, html, timer
 import math
+import time
 
 class Point:
     def __init__(self, x, y):
@@ -115,6 +116,34 @@ def connect_table_with_block(table, block, table_offset=0, n_rows=3):
 
     connect_points(top_left_corner, top_right_corner)
     connect_points(bottom_left_corner, bottom_right_corner)
+
+class TimedEventChain:
+    '''Chains timed events. Add event with relative time from the last element, then run the whole chain at once'''
+    def __init__(self):
+        self.chain = []
+        self.i = 0
+        self.cumulative_time = 0
+
+    def set_timeout(self, ev):
+        if self.i == len(self.chain):
+            return
+        
+        delay, callback = self.chain[self.i]
+        timer.set_timeout(callback, delay)
+
+        self.i += 1
+        self.set_timeout(ev)
+
+    def start_function(self, ev):
+        return self.set_timeout(ev)
+
+    def add(self, ms_delay, function):
+        self.cumulative_time += ms_delay
+        self.chain.append((self.cumulative_time, function))
+
+
+def sleep(milliseconds, callback=None):
+    timer.set_timeout(callback, milliseconds)
 
 if __name__ == "__main__":
     a = Point(0, 0)
