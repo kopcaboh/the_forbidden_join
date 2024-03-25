@@ -37,3 +37,13 @@ button {
     padding: 5px;
     margin: 0.6em 0;
 }
+
+.fade-in {
+    visibility: hidden;
+    animation: fade-in 2s linear forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; visibility: visible;}
+}
